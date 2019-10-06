@@ -61,15 +61,12 @@ class BackgroundJobService : JobService() {
             )
             try {
                 val notification =
-                    Uri.parse("android.resource://" + packageName + "/" + R.raw.suffer12)
+                    Uri.parse("android.resource://" + packageName + "/" + R.raw.suffer)
                 val r = RingtoneManager.getRingtone(applicationContext, notification)
                 r.play()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-
-
-
             notificationManager.createNotificationChannel(channel)
         }
 
@@ -84,7 +81,7 @@ class BackgroundJobService : JobService() {
         val notificationBuilder = NotificationCompat.Builder(
             this, "AIO"
         )
-            .setSmallIcon(R.mipmap.ic_launcher_round)
+            .setSmallIcon(R.mipmap.ic_icon)
             .setContentTitle("Bitcoin price changed to $$bitConPrice")
             .setContentText("Price you bought at: $$userPrice")
             .setAutoCancel(true)
